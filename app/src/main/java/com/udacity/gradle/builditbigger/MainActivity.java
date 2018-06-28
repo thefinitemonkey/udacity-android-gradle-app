@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         fm.beginTransaction().add(R.id.frame_joke_display, magicFragment).commit();
 
 
-        Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
     }
 
 
