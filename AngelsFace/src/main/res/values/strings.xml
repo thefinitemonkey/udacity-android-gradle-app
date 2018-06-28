@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Abracadabra</string>
+    <string name="joke_argument">jokeArgumentValue</string>
+</resources>

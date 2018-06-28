@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AngelsFace/AngelsFace.iml" filepath="$PROJECT_DIR$/AngelsFace/AngelsFace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SteveMillerBand/SteveMillerBand.iml" filepath="$PROJECT_DIR$/SteveMillerBand/SteveMillerBand.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-gradle-app.iml" filepath="$PROJECT_DIR$/android-gradle-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
