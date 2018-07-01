@@ -25,6 +25,18 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "tier"
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+            dimension "tier"
+        }
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+            dimension "tier"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -53,7 +65,7 @@ dependencies {
     })
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
-    
+
     implementation project(path: ':SteveMillerBand')
     implementation project(path: ':AngelsFace')
 }
