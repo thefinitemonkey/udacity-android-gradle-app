@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements EndpointAsyncTask
         // Get a joke from the "joker" web service in GCE
         EndpointAsyncTask task = new EndpointAsyncTask();
         task.setListener(this);
-        task.execute(new Pair<Context, String>(this, ""));
+        task.execute();
     }
 
     @Override

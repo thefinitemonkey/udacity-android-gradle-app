@@ -2,7 +2,6 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v4.util.Pair;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -12,7 +11,7 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
-public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class EndpointAsyncTask extends AsyncTask<Void, Void, String> {
     private MyApi myApiService = null;
     private Context context;
     private EndpointTaskNotification mEndpointListener;
@@ -22,7 +21,7 @@ public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
     }
 
     @Override
-    protected String doInBackground(Pair<Context, String>... pairs) {
+    protected String doInBackground(Void... voids) {
         if (myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(
                     AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),
@@ -37,9 +36,10 @@ public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
             myApiService = builder.build();
         }
 
-        context = pairs[0].first;
         try {
-            return myApiService.getJoke().execute().getJoke();
+            String joke = myApiService.getJoke().execute().getJoke();
+            if (joke == null) return "";
+            return joke;
         } catch (IOException e) {
             return e.getMessage();
         }
