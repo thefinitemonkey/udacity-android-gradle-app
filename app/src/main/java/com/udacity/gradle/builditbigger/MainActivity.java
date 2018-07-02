@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
@@ -19,15 +20,11 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity implements EndpointAsyncTask.EndpointTaskNotification {
-    @BindView(R.id.frame_joke_display)
-    View mFrameJokeDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ButterKnife.bind(this);
     }
 
 
@@ -69,34 +66,9 @@ public class MainActivity extends AppCompatActivity implements EndpointAsyncTask
     }
 
     public void displayJoke(String joke) {
-        // Remove any fragments from the joke display frame layout
-        FragmentManager fm = getSupportFragmentManager();
-        List<Fragment> frags = fm.getFragments();
-        if (frags != null) {
-            for (Fragment frag : frags) {
-                if (frag.getView() == null) return;
-
-                View container = (View) frag.getView().getParent();
-                if (container.equals(mFrameJokeDisplay)) {
-                    fm.beginTransaction().remove(frag).commit();
-                }
-            }
-        }
-
-        // Create the bundle with the joke text
-        Bundle bundle = new Bundle();
-        bundle.putString(
-                getResources().getString(com.example.angelsface.R.string.joke_argument), joke);
-        Magic magicFragment = new Magic();
-        magicFragment.setArguments(bundle);
-
-        // Add the fragment to the display area
-        fm.beginTransaction().add(R.id.frame_joke_display, magicFragment).commit();
-
-
-        //Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
+        // Create intent to navigate to the JokeDisplayActivity with the joke data
+        Intent intent = new Intent(this, JokeDisplayActivity.class);
+        intent.putExtra(getResources().getString(R.string.joke_extra), joke);
+        startActivity(intent);
     }
-
-
-
 }

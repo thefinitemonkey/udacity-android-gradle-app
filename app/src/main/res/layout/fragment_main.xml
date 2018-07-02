@@ -23,13 +23,6 @@
         android:onClick="tellJoke"
         android:text="@string/button_text" />
 
-    <FrameLayout
-        android:id="@+id/frame_joke_display"
-        android:layout_below="@+id/btnTellJoke"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"/>
-
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
