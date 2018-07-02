@@ -5,7 +5,7 @@ This is the final code for the Android Gradle project from Doug Brown. It has th
 * Paid and free versions
 * GCE used to retrieve jokes from the TheJoker class in the SteveMillerBand module
 * AsyncTask used to retrieve joke from GCE
-* Fragment loaded with joke for display through Bundle (instead of Intent to Activity...seemed a better user experience and slightly more technical)
+* Android module shows activity to display joke passed in through Intent (Fragment displays in Activity with Bundle passed in containing joke)
 * Automated testing for AsyncTask
 
 ## How to Use
